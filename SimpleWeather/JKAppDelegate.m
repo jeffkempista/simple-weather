@@ -8,14 +8,21 @@
 
 #import "JKAppDelegate.h"
 
+#import "WXController.h"
+#import <TSMessage.h>
+
 @implementation JKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.rootViewController = [WXController new];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [TSMessage setDefaultViewController:self.window.rootViewController];
+    
     return YES;
 }
 
