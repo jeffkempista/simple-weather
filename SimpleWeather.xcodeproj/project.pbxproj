@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FA30084188164F60070114A /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA30083188164F60070114A /* UIView+AutoLayout.m */; };
+		1FA30085188164F60070114A /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA30083188164F60070114A /* UIView+AutoLayout.m */; };
 		3C425F8A187C51A5001CE448 /* WXController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C425F89187C51A5001CE448 /* WXController.m */; };
 		3C425F8B187C51A5001CE448 /* WXController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C425F89187C51A5001CE448 /* WXController.m */; };
 		3C425FA8187C5321001CE448 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C425F8D187C5321001CE448 /* bg.png */; };
@@ -96,6 +98,8 @@
 
 /* Begin PBXFileReference section */
 		1914E24D291F407396742FE0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FA30082188164F60070114A /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		1FA30083188164F60070114A /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		2C85E4DBEE304FF3BC3D74AA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		3C425F88187C51A5001CE448 /* WXController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXController.h; sourceTree = "<group>"; };
 		3C425F89187C51A5001CE448 /* WXController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXController.m; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 				3C425FE5187C5E7E001CE448 /* WXCondition.m */,
 				3C425FE8187C5E98001CE448 /* WXDailyForecast.h */,
 				3C425FE9187C5E98001CE448 /* WXDailyForecast.m */,
+				1FA30082188164F60070114A /* UIView+AutoLayout.h */,
+				1FA30083188164F60070114A /* UIView+AutoLayout.m */,
 			);
 			path = SimpleWeather;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C425FE2187C5E65001CE448 /* WXManager.m in Sources */,
+				1FA30084188164F60070114A /* UIView+AutoLayout.m in Sources */,
 				3C425FEA187C5E98001CE448 /* WXDailyForecast.m in Sources */,
 				3C6BB27A187C4EAC00F4EC8F /* main.m in Sources */,
 				3C6BB27E187C4EAC00F4EC8F /* JKAppDelegate.m in Sources */,
@@ -502,6 +509,7 @@
 				3C425FE7187C5E7E001CE448 /* WXCondition.m in Sources */,
 				3C425F8B187C51A5001CE448 /* WXController.m in Sources */,
 				3C6BB293187C4EAC00F4EC8F /* SimpleWeatherTests.m in Sources */,
+				1FA30085188164F60070114A /* UIView+AutoLayout.m in Sources */,
 				3C425FDF187C5E5A001CE448 /* WXClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

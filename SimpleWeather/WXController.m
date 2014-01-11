@@ -9,6 +9,7 @@
 #import "WXController.h"
 
 #import "WXManager.h"
+#import "UIView+AutoLayout.h"
 #import <LBBlurredImage/UIImageView+LBBlurredImage.h>
 
 @interface WXController ()
@@ -79,25 +80,6 @@
     
     // 1
     CGRect headerFrame = [UIScreen mainScreen].bounds;
-    // 2
-    CGFloat inset = 20;
-    // 3
-    CGFloat temperatureHeight = 110;
-    CGFloat hiloHeight = 40;
-    CGFloat iconHeight = 30;
-    //4
-    CGRect hiloFrame = CGRectMake(inset, headerFrame.size.height - hiloHeight, headerFrame.size.width - (2 * inset), hiloHeight);
-    
-    CGRect temperatureFrame = CGRectMake(inset, headerFrame.size.height - (temperatureHeight + hiloHeight), headerFrame.size.width - (2 * inset), temperatureHeight);
-    
-    CGRect iconFrame = CGRectMake(inset, temperatureFrame.origin.y - iconHeight, iconHeight, iconHeight);
-    
-    // 5
-    CGRect conditionsFrame = iconFrame;
-    conditionsFrame.size.width = self.view.bounds.size.width - (((2 * inset) + iconHeight) + 10);
-    conditionsFrame.origin.x = iconFrame.origin.x + (iconHeight + 10);
-    
-    // 1
     UIView *header = [[UIView alloc] initWithFrame:headerFrame];
     header.backgroundColor = [UIColor clearColor];
     self.tableView.tableHeaderView = header;
@@ -105,7 +87,7 @@
     // 2
     // bottom left
     UILabel *temperatureLabel = ({
-        UILabel *label = [[UILabel alloc] initWithFrame:temperatureFrame];
+        UILabel *label = [UILabel autoLayoutView];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
         label.text = @"0°";
@@ -116,7 +98,7 @@
     
     // bottom left
     UILabel *hiloLabel = ({
-        UILabel *label = [[UILabel alloc] initWithFrame:hiloFrame];
+        UILabel *label = [UILabel autoLayoutView];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
         label.text = @"0° / 0°";
@@ -126,7 +108,7 @@
     [header addSubview:hiloLabel];
     
     UILabel *cityLabel = ({
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, 30)];
+        UILabel *label = [UILabel autoLayoutView];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
         label.text = @"Loading...";
@@ -137,7 +119,7 @@
     [header addSubview:cityLabel];
     
     UILabel *conditionsLabel = ({
-        UILabel *label = [[UILabel alloc] initWithFrame:conditionsFrame];
+        UILabel *label = [UILabel autoLayoutView];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
         label.text = @"Clear";
@@ -147,19 +129,30 @@
     [header addSubview:conditionsLabel];
     
     // 3
-    // bottom left
-    UIImageView *iconView = [[UIImageView alloc] initWithFrame:iconFrame];
+    UIImageView *iconView = [UIImageView autoLayoutView];
     iconView.image = [UIImage imageNamed:@"weather-clear"];
     iconView.contentMode = UIViewContentModeScaleAspectFill;
     iconView.backgroundColor = [UIColor clearColor];
     [header addSubview:iconView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(cityLabel, iconView, conditionsLabel, temperatureLabel, hiloLabel);
+    [header addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[cityLabel(30)]" options:0 metrics:nil views:views]];
+    [header addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[cityLabel]|" options:0 metrics:nil views:views]];
+    
+    [header addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-20-[hiloLabel]" options:0 metrics:nil views:views]];
+    [header addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-20-[temperatureLabel]" options:0 metrics:nil views:views]];
+    
+    [header addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-20-[iconView]-[conditionsLabel]" options:NSLayoutFormatAlignAllBottom metrics:nil views:views]];
+    [header addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[iconView]-5-[temperatureLabel(110)]-5-[hiloLabel(40)]-5-|" options:0 metrics:nil views:views]];
     
     [[RACObserve([WXManager sharedManager], currentCondition)
         deliverOn:[RACScheduler mainThreadScheduler]]
     subscribeNext:^(WXCondition *newCondition) {
         temperatureLabel.text = [NSString stringWithFormat:@"%.0f°", newCondition.temperature.floatValue];
         conditionsLabel.text = [newCondition.condition capitalizedString];
-        cityLabel.text = [newCondition.locationName capitalizedString];
+        if (newCondition.locationName) {
+            cityLabel.text = [newCondition.locationName capitalizedString];
+        }
 
         iconView.image = [UIImage imageNamed:[newCondition imageName]];
     }];
