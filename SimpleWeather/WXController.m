@@ -67,8 +67,8 @@
     [self.view addSubview:self.blurredImageView];
     
     // 4
-    self.tableView = ({
-        UITableView *tableView = [UITableView new];
+    UITableView *tableView = ({
+        UITableView *tableView = [UITableView autoLayoutView];
         tableView.backgroundColor = [UIColor clearColor];
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -76,6 +76,7 @@
         tableView.pagingEnabled = YES;
         tableView;
     });
+    self.tableView = tableView;
     [self.view addSubview:self.tableView];
     
     // 1
@@ -135,7 +136,10 @@
     iconView.backgroundColor = [UIColor clearColor];
     [header addSubview:iconView];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(cityLabel, iconView, conditionsLabel, temperatureLabel, hiloLabel);
+    NSDictionary *views = NSDictionaryOfVariableBindings(tableView, cityLabel, iconView, conditionsLabel, temperatureLabel, hiloLabel);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[tableView]|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView]|" options:0 metrics:nil views:views]];
+    
     [header addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[cityLabel(30)]" options:0 metrics:nil views:views]];
     [header addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[cityLabel]|" options:0 metrics:nil views:views]];
     
@@ -193,6 +197,13 @@
     self.backgroundImageView.frame = bounds;
     self.blurredImageView.frame = bounds;
     self.tableView.frame = bounds;
+    if (self.tableView.tableHeaderView) {
+        UIView *headerView = self.tableView.tableHeaderView;
+        CGRect headerFrame = headerView.frame;
+        headerFrame.size.height = CGRectGetHeight(bounds);
+        headerView.frame = headerFrame;
+        [self.tableView setTableHeaderView:headerView];
+    }
 }
 
 - (void)didReceiveMemoryWarning
