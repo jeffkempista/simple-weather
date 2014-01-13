@@ -242,6 +242,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jeff Kempista";
 				TargetAttributes = {
+					3C6BB269187C4EAC00F4EC8F = {
+						DevelopmentTeam = 9V5C5EJKEP;
+					};
 					3C6BB284187C4EAC00F4EC8F = {
 						TestTargetID = 3C6BB269187C4EAC00F4EC8F;
 					};
@@ -458,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleWeather/SimpleWeather-Prefix.pch";
 				INFOPLIST_FILE = "SimpleWeather/SimpleWeather-Info.plist";
@@ -472,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleWeather/SimpleWeather-Prefix.pch";
 				INFOPLIST_FILE = "SimpleWeather/SimpleWeather-Info.plist";

@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorColor = [UIColor colorWithWhite:1 alpha:0.2];
     self.tableView.pagingEnabled = YES;
@@ -44,8 +44,7 @@
     [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refresh;
     
-    CGRect headerFrame = [UIScreen mainScreen].bounds;
-    UIView *headerView = [[UIView alloc] initWithFrame:headerFrame];
+    UIView *headerView = [[UIView alloc] init];
     headerView.backgroundColor = [UIColor clearColor];
     self.tableView.tableHeaderView = headerView;
     
@@ -148,13 +147,8 @@
     [[WXManager sharedManager] findCurrentLocation];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Refresh Control
+
 - (void)refresh
 {
     [[WXManager sharedManager] findCurrentLocation];
@@ -240,7 +234,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger cellCount = [self tableView:tableView numberOfRowsInSection:indexPath.section];
-    return self.viewHeight / (CGFloat)cellCount;
+    return self.height / (CGFloat)cellCount;
 }
 
 #pragma mark - Scroll View Delegate

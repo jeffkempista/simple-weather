@@ -10,7 +10,7 @@
 
 @interface WXForecastTableViewController : UITableViewController
 
-@property (assign, nonatomic) CGFloat viewHeight;
+@property (assign, nonatomic) CGFloat height;
 @property (weak, nonatomic) id<UIScrollViewDelegate> scrollViewDelegate;
 
 @end
