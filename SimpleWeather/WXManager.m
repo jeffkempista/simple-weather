@@ -41,6 +41,7 @@
 {
     if (self = [super init]) {
         _locationManager = [CLLocationManager new];
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         _locationManager.delegate = self;
         
         _client = [WXClient new];
@@ -83,7 +84,6 @@
     }
     
     CLLocation *location = [locations lastObject];
-    
     if (location.horizontalAccuracy > 0) {
         self.currentLocation = location;
         [self.locationManager stopUpdatingLocation];
