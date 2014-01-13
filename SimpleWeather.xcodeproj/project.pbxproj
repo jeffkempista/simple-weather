@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F6FD70B188438C100DA1F6C /* WXForecastTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6FD70A188438C100DA1F6C /* WXForecastTableViewController.m */; };
+		1F6FD70C188438C100DA1F6C /* WXForecastTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6FD70A188438C100DA1F6C /* WXForecastTableViewController.m */; };
 		1FA30084188164F60070114A /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA30083188164F60070114A /* UIView+AutoLayout.m */; };
 		1FA30085188164F60070114A /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA30083188164F60070114A /* UIView+AutoLayout.m */; };
 		3C425F8A187C51A5001CE448 /* WXController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C425F89187C51A5001CE448 /* WXController.m */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		1914E24D291F407396742FE0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6FD709188438C100DA1F6C /* WXForecastTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXForecastTableViewController.h; sourceTree = "<group>"; };
+		1F6FD70A188438C100DA1F6C /* WXForecastTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXForecastTableViewController.m; sourceTree = "<group>"; };
 		1FA30082188164F60070114A /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		1FA30083188164F60070114A /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		2C85E4DBEE304FF3BC3D74AA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				3C6BB27D187C4EAC00F4EC8F /* JKAppDelegate.m */,
 				3C425F88187C51A5001CE448 /* WXController.h */,
 				3C425F89187C51A5001CE448 /* WXController.m */,
+				1F6FD709188438C100DA1F6C /* WXForecastTableViewController.h */,
+				1F6FD70A188438C100DA1F6C /* WXForecastTableViewController.m */,
 				3C425FDC187C5E5A001CE448 /* WXClient.h */,
 				3C425FDD187C5E5A001CE448 /* WXClient.m */,
 				3C425FE0187C5E65001CE448 /* WXManager.h */,
@@ -319,6 +325,7 @@
 			files = (
 				3C425FE2187C5E65001CE448 /* WXManager.m in Sources */,
 				1FA30084188164F60070114A /* UIView+AutoLayout.m in Sources */,
+				1F6FD70B188438C100DA1F6C /* WXForecastTableViewController.m in Sources */,
 				3C425FEA187C5E98001CE448 /* WXDailyForecast.m in Sources */,
 				3C6BB27A187C4EAC00F4EC8F /* main.m in Sources */,
 				3C6BB27E187C4EAC00F4EC8F /* JKAppDelegate.m in Sources */,
@@ -339,6 +346,7 @@
 				3C6BB293187C4EAC00F4EC8F /* SimpleWeatherTests.m in Sources */,
 				1FA30085188164F60070114A /* UIView+AutoLayout.m in Sources */,
 				3C425FDF187C5E5A001CE448 /* WXClient.m in Sources */,
+				1F6FD70C188438C100DA1F6C /* WXForecastTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
